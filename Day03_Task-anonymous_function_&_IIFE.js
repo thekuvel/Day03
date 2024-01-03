@@ -139,40 +139,31 @@ anonymousFunctionD(11);
 //e. Return all the palindromes in an array
 console.log("\ne. Return all the palindromes in an array")
 //Anonymous Function
-let anonymousFunctionE = function(n){
-    let reversedArray = palindromArray = [];
-    let c = d = 1;
-
-    for(x = 1; x<=n; x++){
-        reversedArray = [];
-        number = x;
-        c = d = 1;
-        while(c === 1){
-            if(number / 10 < 1){
-                c = 0;
-                reversedArray.push(number);
-            }else{
-                reversedArray.push(number%10);
-                number = (number-(number%10))/10;            
-            }
-        }
+console.log("Anonymous Function")
+let anonymousFunctionE = function(userInput){
+    let number;
+    let rem, revNumber = 0;
     
-        let j = reversedArray.length-1;
-        for(i=0;i<reversedArray.length/2;i++){
-            if(reversedArray[i] != reversedArray[j]){
-                d = 0;
-            }
-            j = j-1;
+    for(i=0;i<userInput.length;i++){
+        
+        number = userInput[i];
+        rem = revNumber = 0;
+        
+        while(number > 0){
+            rem = number % 10;
+            number = parseInt(number / 10);
+            revNumber = revNumber * 10 + rem;
         }
-
-        if(d === 1){
-            palindromArray.push(x);
-        }
+        
+        if(userInput[i] == revNumber){
+            console.log(userInput[i], " is Palindrome");
+        }else{
+            console.log(userInput[i], " is not a Palindrome");
+        }        
     }
-    console.log("Anonymus function palindrome: ", palindromArray);
 }
 
-anonymousFunctionE(922);
+anonymousFunctionE([123,12321]);
 
 (function(n){
     let reversedArray = palindromArray = [];
